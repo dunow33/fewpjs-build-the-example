@@ -2,12 +2,12 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-let glyphStates = {
+let glyph = {
   "♡": "♥",
   "♥": "♡"
 };
 
-let colorStates = {
+let color = {
   "red" : "",
   "": "red"
 };
@@ -18,8 +18,8 @@ function callServerCall(e){
   let heart = e.target;
   mimicServerCall("bogusUrl")
     .then(function(serverMessage){
-      heart.innerText = glyphStates[heart.innerText];
-      heart.style.color = colorStates[heart.style.color];
+      heart.innerText = glyph[heart.innerText];
+      heart.style.color = color[heart.style.color];
     })
     .catch(function(error){
       document.getElementById("modal").classList.remove("hidden");
